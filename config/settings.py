@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,15 +88,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nexusrate_db',
-        'USER': 'nexusrate_user',       
-        'PASSWORD': 'strong_secret_password', 
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://nexusrate_user:strong_secret_password@localhost:5432/nexusrate_db',
+        conn_max_age=600
+    )
 }
+
+# Vercel specific: Check for POSTGRES_URL if DATABASE_URL isn't set/working or just to be safe
+if 'POSTGRES_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.parse(os.environ.get('POSTGRES_URL'))
 
 
 # Password validation
