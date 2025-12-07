@@ -85,7 +85,7 @@ function App() {
 
   useEffect(() => {
     // Fetch Gold History
-    axios.get(`${API_BASE_URL} /gold-history/`)
+    axios.get(`${API_BASE_URL}/gold-history/`)
       .then(res => {
         if (res.data.length > 0) {
           // Process data for charts: Reverse to show Oldest -> Newest left to right
@@ -100,7 +100,7 @@ function App() {
       .catch(err => console.error(err));
 
     // Fetch Currency History
-    axios.get(`${API_BASE_URL} /currency-history/`)
+    axios.get(`${API_BASE_URL}/currency-history/`)
       .then(res => {
         if (res.data.length > 0) {
           const history = res.data.slice(0, 50).reverse().map(item => ({
