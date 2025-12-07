@@ -5,8 +5,8 @@ import {
   LineChart, Line, BarChart, Bar, Cell
 } from 'recharts';
 import {
-  TrendingUp, Activity, DollarSign, Globe, Anchor,
-  ArrowUpRight, ArrowDownRight, Clock
+  Activity, DollarSign, Globe, Anchor,
+  ArrowUpRight, ArrowDownRight
 } from 'lucide-react';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api';
@@ -14,7 +14,8 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000
 // --- Utility Components ---
 
 const Card = ({ children, className = "" }) => (
-  <div className={`bg - slate - 800 / 50 backdrop - blur - sm border border - slate - 700 / 50 rounded - xl p - 6 shadow - xl ${className} `}>
+  // Removed backdrop-blur-sm to prevent full-page blur perception on some screens/errors
+  <div className={`bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl ${className}`}>
     {children}
   </div>
 );
