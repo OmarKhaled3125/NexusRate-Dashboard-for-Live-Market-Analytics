@@ -147,49 +147,49 @@ function App() {
         {/* Left Column: Stats & Progress */}
         <div className="lg:col-span-1 space-y-6">
 
-          {/* Gold Summary Card */}
-          <Card className="relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+          {/* Gold Summary Card - RESTORED GRADIENT */}
+          <div className="relative overflow-hidden p-6 rounded-xl bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 text-amber-900 shadow-xl shadow-amber-900/10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-amber-900/20">
+            <div className="absolute top-0 right-0 p-4 opacity-10">
               <Anchor size={80} />
             </div>
             <div className="flex justify-between items-start mb-4">
-              <div className="p-2 bg-slate-900 rounded-lg text-amber-500 border border-slate-700">
+              <div className="p-2 bg-white/50 backdrop-blur-sm rounded-lg text-amber-900 border border-amber-500/20">
                 <Globe size={20} />
               </div>
-              <span className="text-xs font-bold text-amber-500 bg-amber-500/10 px-2 py-1 rounded">XAU / EGP</span>
+              <span className="text-xs font-bold text-amber-900/70 bg-white/50 px-2 py-1 rounded backdrop-blur-sm">XAU / EGP</span>
             </div>
-            <h2 className="text-4xl font-bold text-white tracking-tighter">
+            <h2 className="text-4xl font-black text-amber-950 tracking-tighter">
               {latestGold ? parseFloat(latestGold.price_egp).toLocaleString(undefined, { maximumFractionDigits: 0 }) : "..."}
-              <span className="text-base font-medium text-slate-500 ml-2">EGP</span>
+              <span className="text-base font-medium text-amber-800 ml-2">EGP</span>
             </h2>
-            <p className="text-xs text-slate-400 mt-2 flex items-center">
-              <ArrowUpRight size={14} className="text-emerald-500 mr-1" />
-              <span className="text-emerald-500 font-bold mr-1">+1.2%</span>
+            <p className="text-xs text-amber-800/80 mt-2 flex items-center font-bold">
+              <ArrowUpRight size={14} className="text-amber-700 mr-1" />
+              <span className="mr-1">+1.2%</span>
               since last open
             </p>
-          </Card>
+          </div>
 
-          {/* Currency Summary Card */}
-          <Card className="relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+          {/* Currency Summary Card - RESTORED GRADIENT */}
+          <div className="relative overflow-hidden p-6 rounded-xl bg-gradient-to-br from-emerald-100 via-teal-50 to-emerald-200 text-emerald-900 shadow-xl shadow-emerald-900/10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-emerald-900/20">
+            <div className="absolute top-0 right-0 p-4 opacity-10">
               <DollarSign size={80} />
             </div>
             <div className="flex justify-between items-start mb-4">
-              <div className="p-2 bg-slate-900 rounded-lg text-cyan-500 border border-slate-700">
+              <div className="p-2 bg-white/50 backdrop-blur-sm rounded-lg text-emerald-900 border border-emerald-500/20">
                 <Activity size={20} />
               </div>
-              <span className="text-xs font-bold text-cyan-500 bg-cyan-500/10 px-2 py-1 rounded">USD / EGP</span>
+              <span className="text-xs font-bold text-emerald-900/70 bg-white/50 px-2 py-1 rounded backdrop-blur-sm">USD / EGP</span>
             </div>
-            <h2 className="text-4xl font-bold text-white tracking-tighter">
+            <h2 className="text-4xl font-black text-emerald-950 tracking-tighter">
               {latestCurrency ? parseFloat(latestCurrency.rate).toFixed(2) : "..."}
-              <span className="text-base font-medium text-slate-500 ml-2">EGP</span>
+              <span className="text-base font-medium text-emerald-800 ml-2">EGP</span>
             </h2>
-            <p className="text-xs text-slate-400 mt-2 flex items-center">
-              <ArrowDownRight size={14} className="text-slate-500 mr-1" />
-              <span className="text-slate-500 font-bold mr-1">0.0%</span>
+            <p className="text-xs text-emerald-800/80 mt-2 flex items-center font-bold">
+              <ArrowDownRight size={14} className="text-emerald-700 mr-1" />
+              <span className="mr-1">0.0%</span>
               stable
             </p>
-          </Card>
+          </div>
 
           {/* Circular Stats */}
           <Card>
